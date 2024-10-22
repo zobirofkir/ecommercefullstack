@@ -12,6 +12,7 @@
 <body>
     @include('src.components.header')
     
+    @include('src.components.slider')
     <main>
         {{ $slot }}
     </main>
