@@ -6,14 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite('resources/css/app.css')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="src/css/main.css">
     <title>{{config('app.name')}}</title>
 </head>
 <body>
+    @include('src.components.header')
     
     <main>
         {{ $slot }}
     </main>
 
 
+    @include('src.components.footer')
+
+    <script src="src/js/dropdown.js"></script>
 </body>
 </html>
