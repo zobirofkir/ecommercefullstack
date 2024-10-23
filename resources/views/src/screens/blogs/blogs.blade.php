@@ -1,6 +1,6 @@
 <x-app-layout>
 
-    <div class="container mx-auto bg-gray-100 p-10 rounded-md">
+    <div class="container mx-auto bg-gray-100 p-10 rounded-md md:block hidden">
         <div class="flex justify-center">
             <h1 class="text-3xl font-bold mb-10">Last Blog</h1>
         </div>
@@ -14,7 +14,7 @@
             </div>
     
             <div class="w-full md:w-1/2">
-                <img src="https://picsum.photos/950/800" class="w-full h-full object-cover object-center rounded-md" alt="">
+                <img src="https://picsum.photos/950/800" class="w-full h-full object-cover object-center rounded-md" alt="Default Image">
             </div>
         </div>
     
