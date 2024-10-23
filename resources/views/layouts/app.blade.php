@@ -19,6 +19,8 @@
     
     @include('src.components.categories')
 
+    @include('src.components.search')
+
     @include('src.components.slider')
     <main>
         {{ $slot }}
@@ -28,5 +30,6 @@
     @include('src.components.footer')
 
     <script src="src/js/dropdown.js"></script>
+    <script src="src/js/slider.js"></script>
 </body>
 </html>
