@@ -4,7 +4,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\ShopeController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /**
@@ -18,9 +18,14 @@ Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('/blogs', [BlogController::class, 'index'])->name('blogs.index');
 
 /**
- * Shope Route
+ * Route Get Products
  */
-Route::get('/shops', [ShopeController::class, 'index'])->name('shops.index');
+Route::get('/shops', [ProductController::class, 'index'])->name('shops.index');
+
+/**
+ * Show Product Route
+ */
+Route::get('/shops/{slug}', [ProductController::class, 'show'])->name('shops.show');
 
 /**
  * Contact Route

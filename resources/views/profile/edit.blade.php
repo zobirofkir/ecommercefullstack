@@ -52,5 +52,9 @@
         
 
     @include('src.components.footer')
+
+    <script src="{{asset('src/js/dropdown.js')}}"></script>
+    <script src="{{asset('src/js/slider.js')}}"></script>
+
 </body>
 </html>

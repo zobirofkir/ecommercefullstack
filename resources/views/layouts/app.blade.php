@@ -29,7 +29,7 @@
     @include('src.components.lister')
     @include('src.components.footer')
 
-    <script src="src/js/dropdown.js"></script>
-    <script src="src/js/slider.js"></script>
+    <script src="{{asset('src/js/dropdown.js')}}"></script>
+    <script src="{{asset('src/js/slider.js')}}"></script>
 </body>
 </html>
