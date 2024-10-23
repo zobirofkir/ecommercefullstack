@@ -1,4 +1,4 @@
-<div class="container mx-auto">
+<div class="container mx-auto my-10">
     <div>
         <div class="flex gap-4 items-center mb-10 overflow-x-auto scrollbar-hide">
             <a href="#">

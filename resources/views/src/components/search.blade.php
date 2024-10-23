@@ -1,4 +1,4 @@
-<div class="container mx-auto p-6">
+<div class="container mx-auto p-6 mt-[100px]">
     <div class="flex justify-center items-center">
         <div class="flex gap-4 items-center shadow-lg px-8 py-3 rounded-full hover:shadow-2xl transition-shadow duration-300">
 

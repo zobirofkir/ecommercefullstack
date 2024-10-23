@@ -1,4 +1,4 @@
-<footer class="bg-green-100 text-black py-8 mt-10">
+<footer class="bg-white text-black py-8 mt-10">
     <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
         <div class="text-center md:text-left">
             <p class="text-black mt-2">© 2024 {{config('app.name')}}. All Rights Reserved.</p>

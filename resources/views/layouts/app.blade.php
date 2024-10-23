@@ -17,9 +17,9 @@
 <body>
     @include('src.components.header')
     
-    @include('src.components.categories')
-
     @include('src.components.search')
+
+    @include('src.components.categories')
 
     @include('src.components.slider')
     <main>
