@@ -14,19 +14,19 @@
         <div id="menu" class="hidden md:flex md:items-center">
             <ul class="flex gap-4 items-center">
                 <a href="{{url('/')}}">
-                    <li class="text-white bg-green-400 font-bold text-xl px-5 py-1 rounded-full">Home</li>
+                    <li class="text-black font-bold text-md px-5 py-1 rounded-full">Home</li>
                 </a>
 
                 <a href="{{url('/blogs')}}">
-                    <li class="text-white bg-green-400 font-bold text-xl px-5 py-1 rounded-full">Blog</li>
+                    <li class="text-black font-bold text-md px-5 py-1 rounded-full">Blog</li>
                 </a>
                 
                 <a href="{{url('/shops')}}">
-                    <li class="text-white bg-green-400 font-bold text-xl px-5 py-1 rounded-full">Shop</li>
+                    <li class="text-black font-bold text-md px-5 py-1 rounded-full">Shop</li>
                 </a>
                 
                 <a href="{{url('/contacts')}}">
-                    <li class="text-white bg-green-400 font-bold text-xl px-5 py-1 rounded-full">Contact</li>                
+                    <li class="text-black font-bold text-md px-5 py-1 rounded-full">Contact</li>                
                 </a>
             </ul>
         </div>
