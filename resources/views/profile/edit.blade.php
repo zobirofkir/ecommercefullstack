@@ -35,8 +35,22 @@
                         @include('profile.partials.delete-user-form')
                     </div>
                 </div>
+
+                <div>
+                    <div>
+                        <form action="{{route('logout')}}" method="POST">
+                            @csrf
+
+                            <x-primary-button class="ml-3">
+                                {{ __('Log Out') }}
+                            </x-primary-button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
+        
+
     @include('src.components.footer')
 </body>
 </html>

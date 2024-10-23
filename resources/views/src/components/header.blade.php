@@ -3,7 +3,13 @@
 
         <div class="flex items-center">
            <a href="{{url('/')}}">
-                <h1 class="text-black font-bold text-2xl">Woody</h1>
+                <h1 class="text-black font-bold text-2xl">
+                    @if (Auth::check())
+                        {{ Auth::user()->name }}
+                    @else
+                        {{config('app.name')}}
+                    @endif
+                </h1>
             </a>
         </div>
 
@@ -33,12 +39,25 @@
             </ul>
         </div>
 
-        <div class="hidden md:flex gap-4 items-center">
-            <div class="bg-green-400 px-5 py-1 rounded-full">
-                <a href="{{url('/carts')}}">
-                    <i class="fa-solid fa-cart-shopping text-white"></i>
-                </a>
-            </div>
+        <div class="hidden md:flex gap-6 items-center">
+        
+            @if (!Auth::check())
+                <div>
+                    <a href="{{ url('/login') }}" class="flex gap-2 items-center">
+                        <h3 class="text-black font-bold text-md">Login</h3>
+                        <i class="fa-solid fa-right-to-bracket fa-md"></i>
+                    </a>
+                </div>
+            @endif
+    
+                @if (!Auth::check())
+                <div>
+                    <a href="{{ url('/register') }}" class="flex gap-2 items-center">
+                        <h3 class="text-black font-bold text-md">Register</h3>
+                        <i class="fa-solid fa-user-plus fa-md"></i>
+                    </a>
+                </div>
+            @endif
 
             @if (Auth::check())
                 <div>
@@ -47,7 +66,14 @@
                     </a>
                 </div>
             @endif
-        
+
+            @if (Auth::check())
+                <div class="bg-green-400 px-5 py-1 rounded-full">
+                    <a href="{{url('/carts')}}">
+                        <i class="fa-solid fa-cart-shopping text-white"></i>
+                    </a>
+                </div>
+            @endif
         </div>
     </div>
 
