@@ -1,8 +1,10 @@
-<nav class="fixed top-0 left-0 right-0 z-50">
+<nav class="fixed top-0 left-0 right-0 z-50 mb-10">
     <div class="flex justify-between w-full items-center  bg-white px-5 md:px-10 py-5 flex justify-between items-center shadow-lg">
 
         <div class="flex items-center">
-            <h1 class="text-black font-bold text-2xl">Woody</h1>
+           <a href="{{url('/')}}">
+                <h1 class="text-black font-bold text-2xl">Woody</h1>
+            </a>
         </div>
 
         <div class="md:hidden">

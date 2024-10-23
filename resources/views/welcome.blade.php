@@ -2,6 +2,6 @@
     <div>
         @include('src.components.offer')
 
-        @include('src.components.products')
+        @include('src.components.shops.shops')
     </div>
 </x-app-layout>
