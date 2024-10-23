@@ -1,7 +1,7 @@
 <div class="container mx-auto mb-10">
     <div>
-        <div>
-            <h1 class="text-3xl font-bold mb-6 text-center">Blogs</h1>
+        <div class="flex justify-center mt-10">
+            <h1 class="text-3xl font-bold mb-6 text-center">Our Blogs</h1>
         </div>
 
         <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6">
