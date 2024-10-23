@@ -1,5 +1,5 @@
-<nav>
-    <div class="flex justify-between w-full items-center fixed top-0 left-0 right-0 z-50 bg-white px-5 md:px-10 py-5 flex justify-between items-center shadow-lg">
+<nav class="fixed top-0 left-0 right-0 z-50">
+    <div class="flex justify-between w-full items-center  bg-white px-5 md:px-10 py-5 flex justify-between items-center shadow-lg">
 
         <!-- Logo Section -->
         <div class="flex items-center">
@@ -51,7 +51,7 @@
     </div>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="md:hidden hidden flex-col mt-20 bg-white shadow-lg rounded-lg p-5 transition-all duration-300 ease-in-out max-h-0 overflow-hidden">
+    <div id="mobile-menu" class="md:hidden hidden flex-col bg-white shadow-lg rounded-lg p-5 transition-all duration-300 ease-in-out max-h-0 overflow-hidden">
         <ul class="flex flex-col gap-4">
             <a href="{{url('/')}}">
                 <li class="text-black text-lg font-medium hover:bg-green-400 hover:text-white px-3 py-2 rounded-lg transition-colors duration-200 cursor-pointer">Home</li>
