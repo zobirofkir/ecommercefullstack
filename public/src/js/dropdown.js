@@ -8,3 +8,7 @@ document.getElementById('menu-toggle').addEventListener('click', function() {
         setTimeout(() => mobileMenu.classList.add('hidden'), 300); // Keep in sync with duration-300
     }
 });
+
+
+
+
