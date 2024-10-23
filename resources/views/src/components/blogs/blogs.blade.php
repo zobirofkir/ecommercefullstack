@@ -11,9 +11,9 @@
                         <div class="flex justify-center items-center">
                             <img src="https://picsum.photos/200/300" alt="Blog Image" class="w-full md:h-[400px] h-[200px] object-cover object-center rounded">
                         </div>
-                        <div class="flex flex-col justify-center items-center">
-                            <h1 class="text-xl font-bold text-black hover:-rotate-3 transition-transform duration-300">Blog Title</h1>
-                            <p class="text-md font-semibold text-black hover:-rotate-3 transition-transform duration-300">Blog Description</p>
+                        <div class="flex flex-col">
+                            <h1 class="text-xl font-bold text-center mt-4 text-black hover:-rotate-3 transition-transform duration-300">Blog Title</h1>
+                            <p class="text-black hover:-rotate-3 font-semibold py-2 transition-transform duration-300">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                         </div>
                         <div class="flex justify-start items-center">
                             <a href="#" class="text-green-500 hover:text-green-600 font-semibold hover:-rotate-3 transition-transform duration-300">Read More</a>
