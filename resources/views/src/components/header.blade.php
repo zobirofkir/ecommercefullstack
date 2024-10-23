@@ -40,11 +40,14 @@
                 </a>
             </div>
 
-            <div>
-                <a href="{{url('/profile')}}">
-                    <i class="fa-regular fa-user"></i>
-                </a>
-            </div>
+            @if (Auth::check())
+                <div>
+                    <a href="{{ url('/profile') }}">
+                        <i class="fa-regular fa-user"></i>
+                    </a>
+                </div>
+            @endif
+        
         </div>
     </div>
 
@@ -73,11 +76,15 @@
                     <i class="fa-solid fa-cart-shopping text-white"></i>
                 </a>
             </div>
-            <div class="bg-gray-200 p-2 rounded-full shadow-md hover:bg-gray-300 transition-colors duration-200 cursor-pointer">
-                <a href="{{url('/profile')}}">
-                    <i class="fa-regular fa-user text-black"></i>
-                </a>
-            </div>
+
+            @if (Auth::check())
+                <div class="bg-gray-200 p-2 rounded-full shadow-md hover:bg-gray-300 transition-colors duration-200 cursor-pointer">
+                    <a href="{{url('/profile')}}">
+                        <i class="fa-regular fa-user text-black"></i>
+                    </a>
+                </div>
+            @endif
+            
         </div>
     </div>    
 </nav>
