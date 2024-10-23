@@ -45,7 +45,6 @@
                 <div>
                     <a href="{{ url('/login') }}" class="flex gap-2 items-center">
                         <h3 class="text-black font-bold text-md">Login</h3>
-                        <i class="fa-solid fa-right-to-bracket fa-md"></i>
                     </a>
                 </div>
             @endif
@@ -54,7 +53,6 @@
                 <div>
                     <a href="{{ url('/register') }}" class="flex gap-2 items-center">
                         <h3 class="text-black font-bold text-md">Register</h3>
-                        <i class="fa-solid fa-user-plus fa-md"></i>
                     </a>
                 </div>
             @endif
@@ -97,6 +95,23 @@
         </ul>
 
         <div class="flex gap-6 items-center mt-6">
+
+            @if (!Auth::check())
+                <div>
+                    <a href="{{ url('/login') }}" class="flex gap-2 items-center">
+                        <h3 class="text-black font-bold text-md">Login</h3>
+                    </a>
+                </div>
+            @endif
+
+            @if (!Auth::check())
+                <div>
+                    <a href="{{ url('/register') }}" class="flex gap-2 items-center">
+                        <h3 class="text-black font-bold text-md">Register</h3>
+                    </a>
+                </div>
+            @endif
+
             <div class="bg-green-400 px-5 py-2 rounded-full shadow-md hover:bg-green-500 transition-colors duration-200 cursor-pointer">
                 <a href="{{url('/carts')}}">
                     <i class="fa-solid fa-cart-shopping text-white"></i>
