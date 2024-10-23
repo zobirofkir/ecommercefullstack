@@ -3,20 +3,27 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
 use Illuminate\Support\Str;
 
-
-class Category extends Model
+class Product extends Model
 {
     protected $fillable = [
-        "title", 
-        "slug",
+        'image_id',
+        'category_id',
+        'title',
+        'description',
+        'prix',
+        'slug',
+        'images',
+    ]; 
+
+    protected $casts = [
+        'images' => 'array',
     ];
 
-    public function products()
+    public function category()
     {
-        return $this->hasMany(Product::class);
+        return $this->belongsTo(Category::class);
     }
 
     protected static function boot()
