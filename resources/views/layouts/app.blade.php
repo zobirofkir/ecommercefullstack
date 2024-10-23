@@ -22,7 +22,7 @@
         {{ $slot }}
     </main>
 
-
+    @include('src.components.lister')
     @include('src.components.footer')
 
     <script src="src/js/dropdown.js"></script>
