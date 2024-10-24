@@ -33,7 +33,6 @@
             </div>
             <p class="mt-2 text-gray-700">{{ $comment->message }}</p>
 
-            <!-- Check if the authenticated user is the owner of the comment -->
             @if (Auth::check() && Auth::id() === $comment->user_id)
                 <form action="{{ route('products.comments.delete', $comment->id) }}" method="POST" class="mt-2">
                     @csrf

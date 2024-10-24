@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductCommentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
 
 /**
@@ -56,6 +57,11 @@ Route::get('/comments', [BlogCommentController::class, 'index'])->name('comments
  */
 Route::get('/products/comments', [ProductCommentController::class, 'index'])->name('products.index');
 
+
+/**
+ * Search Route
+ */
+Route::get('/search', [SearchController::class, 'search'])->name('products.search');
 
 /**
  * Authenticated Routes

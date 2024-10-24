@@ -9,4 +9,5 @@ return [
     App\Providers\Filament\AdminPanelProvider::class,
     App\Providers\ProductCommentServiceProvider::class,
     App\Providers\ProductServiceProvider::class,
+    App\Providers\SearchServiceProvider::class,
 ];
