@@ -69,6 +69,11 @@
                 <div class="bg-green-400 px-5 py-1 rounded-full">
                     <a href="{{url('/carts')}}">
                         <i class="fa-solid fa-cart-shopping text-white"></i>
+                        @if (Auth::user()->carts->count() > 0)
+                            <span class="text-white font-bold text-md">{{ Auth::user()->carts->count() }}</span>
+                        @else
+                            <span class="text-white font-bold text-md"></span>
+                        @endif
                     </a>
                 </div>
             @endif
@@ -116,6 +121,11 @@
                 <div class="bg-green-400 px-5 py-2 rounded-full shadow-md hover:bg-green-500 transition-colors duration-200 cursor-pointer">
                     <a href="{{url('/carts')}}">
                         <i class="fa-solid fa-cart-shopping text-white"></i>
+                        @if (Auth::user()->carts->count() > 0)
+                            <span class="text-white font-bold text-md">{{ Auth::user()->carts->count() }}</span>
+                        @else
+                            <span class="text-white font-bold text-md"></span>
+                        @endif
                     </a>
                 </div>
             @endif
