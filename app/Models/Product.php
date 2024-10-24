@@ -15,6 +15,7 @@ class Product extends Model
         'prix',
         'slug',
         'images',
+        'quantity'
     ]; 
 
     protected $casts = [
@@ -46,4 +47,8 @@ class Product extends Model
         });
     }
 
+    public function carts()
+    {
+        return $this->hasMany(Cart::class);
+    }
 }

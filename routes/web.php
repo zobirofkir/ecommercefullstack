@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BlogCommentController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
@@ -68,13 +69,16 @@ Route::get('/search', [SearchController::class, 'search'])->name('products.searc
  */
 Route::middleware('auth')->group(function () {
 
+    Route::post('/cart/add/{id}', [CartController::class, 'addToCart'])->name('cart.add');
+    Route::get('/carts', [CartController::class, 'showCart'])->name('cart.show');
+    Route::delete('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
     
     /**
      * Store Blog Comment
      */
     Route::post('/blogs/{blogId}/comments', [BlogCommentController::class, 'store'])->name('blogs.comments.store');
 
-    /**
+    /**<
      * Store Product Comment
      */
     Route::post('/products/{productId}/comments', [ProductCommentController::class, 'store'])->name('products.comments.store');

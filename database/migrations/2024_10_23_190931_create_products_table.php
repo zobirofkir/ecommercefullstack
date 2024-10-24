@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string("slug")->unique();
             $table->string("prix");
             $table->longText("images")->nullable();
+            $table->integer("quantity")->default(1);
             $table->timestamps();
         });
     }
