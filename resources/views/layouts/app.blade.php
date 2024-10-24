@@ -12,7 +12,13 @@
     <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet"/>
 
 
-    <title>{{config('app.name')}}</title>
+    <title>
+        @if (Auth::check())
+            {{ Auth::user()->name }}
+        @else
+            {{ config('app.name') }}
+        @endif
+    </title>
 </head>
 <body>
     @include('src.components.header')
