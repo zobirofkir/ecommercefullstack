@@ -1,4 +1,5 @@
 <div class="container mx-auto p-6 mb-10">
+    <hr class="mb-6 border-gray-300 border-1">
     <h1 class="text-3xl font-bold mb-6 text-center text-gray-900">Our Products</h1>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         @php
