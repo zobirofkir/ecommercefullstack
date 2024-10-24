@@ -5,11 +5,17 @@
             @php
                 $results = App\Services\Facades\CategoryFacade::get();
                 $categories = $results['categories'];
+
+                $categoryItem = $categories[0];
+                $showCategory = App\Services\Facades\CategoryFacade::show($categoryItem);
+                $category = $showCategory['categoryItem'];
             @endphp
 
             @foreach ($categories as $category)
-                <a href="#">
-                    <h1 class="bg-green-100 px-10 py-3 rounded-full font-bold whitespace-nowrap mb-0">{{$category->title}}</h1>
+                <a href="{{route('category.show', $category->slug)}}">
+                    @if($category->id === $category->id)
+                        <h1 class="bg-green-100 px-10 py-3 rounded-full font-bold whitespace-nowrap mb-0">{{$category->title}}</h1> 
+                    @endif
                 </a>
             @endforeach
 

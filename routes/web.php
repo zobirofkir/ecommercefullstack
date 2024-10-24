@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
@@ -31,6 +32,12 @@ Route::get('/shops/{slug}', [ProductController::class, 'show'])->name('shops.sho
  * Contact Route
  */
 Route::get('/contacts', [ContactController::class, 'index'])->name('contacts.index');
+
+
+/**
+ * Route Show Category
+ */
+Route::get('/category/{slug}', [CategoryController::class, 'show'])->name('category.show');
 
 /**
  * Authenticated Routes

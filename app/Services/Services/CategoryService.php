@@ -13,4 +13,14 @@ class CategoryService
             'categories' => $categories
         ];
     }
+
+    public function show(Category $category)
+    {
+        $categoryItem = $category->products()->get();
+        return [
+            'categoryItem' => $categoryItem,
+            'category' => $category,
+        ];
+    }
+
 }
