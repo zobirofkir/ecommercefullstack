@@ -12,7 +12,7 @@
                 <div class="bg-white shadow-lg rounded-lg p-4 transition-transform duration-300 ease-in-out transform hover:scale-105 hover:-rotate-3">
                     <a href="{{route('blogs.show', $blog->slug)}}" class="">
                         <div class="flex justify-center items-center">
-                            <img src="{{ asset('storage/' . $blog->image[0]) }}" alt="Blog Image" class="w-full md:h-[400px] h-[200px] object-cover object-center rounded hover:rotate-3 transition-transform duration-300">
+                            <img src="{{ asset('storage/' . $blog->image[0]) }}" alt="Blog Image" class="w-full md:h-[400px] h-[200px] object-cover object-center rounded-lg hover:rotate-3 transition-transform duration-300">
                         </div>
                         <div class="flex flex-col">
                             <h1 class="text-xl font-bold text-center mt-4 text-black hover:rotate-3 transition-transform duration-300">{{ $blog->title }}</h1>
