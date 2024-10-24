@@ -4,7 +4,7 @@
         @php
             $products = App\Models\Product::all();
         @endphp
-        @foreach ($products->take(10) as $product)
+        @foreach ($products as $product)
             <div class="flex flex-col md:flex-row justify-between items-center md:gap-4 gap-8 w-full flex-none">
 
                 <div class="md:w-1/2 w-full p-4 md:p-8">
