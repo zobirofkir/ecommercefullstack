@@ -17,8 +17,8 @@
                         {{ $product->description }}
                     </p>
                     <div class="flex justify-between items-center mt-4">
-                        <a href="{{ route('shops.show', $product->slug) }}" class="bg-green-500 text-white px-4 py-2 rounded-lg text-sm font-semibold transition duration-200 hover:bg-green-600">View Details</a>
-                        <a href="#" class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-semibold transition duration-200 hover:bg-gray-300">Add to Cart</a>
+                        <a href="{{ route('shops.show', $product->slug) }}" class="text-green-500 md:text-start text-center hover:text-green-600 font-semibold transition duration-200">View Details</a>
+                        <a href="#" class="text-green-500 hover:text-green-600 font-semibold md:text-start text-center transition duration-200">Add to Cart</a>
                     </div>
                 </div>
             </div>

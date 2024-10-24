@@ -22,7 +22,7 @@
         <div class="flex justify-center">
             <h2 class="text-2xl font-bold mb-4">Products in {{ $currentCategory->title }}:</h2>
         </div>
-        <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
         @foreach($categoryItem as $product)
             <div class="bg-white shadow-lg rounded-lg overflow-hidden transition-transform duration-300 ease-in-out transform hover:scale-105">
                 <img src="{{ asset('storage/' . $product->images[0]) }}" class="w-full h-48 object-cover object-center" alt="Product Image">

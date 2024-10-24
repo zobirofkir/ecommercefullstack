@@ -3,7 +3,7 @@
     $comments = $items['comments'];
 @endphp
 
-<div class="container mx-auto mt-8">
+<div class="container mx-auto mt-8 md:p-0 p-6">
     <h2 class="text-xl font-semibold mb-4">Comments ({{ $comments->count() }})</h2>
 
     @if (Auth::check())
