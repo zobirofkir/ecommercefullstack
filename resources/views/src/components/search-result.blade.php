@@ -44,7 +44,7 @@
             </div>
         </div>
     @else
-        <div class="mt-6">
+        <div class="container mx-auto flex justify-center items-center h-screen">
             <p class="text-center text-gray-600">No products found.</p>
         </div>
     @endif
