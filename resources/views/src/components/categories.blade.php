@@ -14,7 +14,7 @@
             @foreach ($categories as $category)
                 <a href="{{route('category.show', $category->slug)}}">
                     @if($category->id === $category->id)
-                        <h1 class="bg-green-100 px-10 py-3 rounded-full font-bold whitespace-nowrap mb-0">{{$category->title}}</h1> 
+                        <h1 class="bg-green-100 px-10 py-3 rounded-full font-bold whitespace-nowrap mb-10">{{$category->title}}</h1> 
                     @endif
                 </a>
             @endforeach
