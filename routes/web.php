@@ -69,9 +69,20 @@ Route::get('/search', [SearchController::class, 'search'])->name('products.searc
  */
 Route::middleware('auth')->group(function () {
 
-    Route::post('/cart/add/{id}', [CartController::class, 'addToCart'])->name('cart.add');
+    /**
+     * Add To Cart
+     */
+    Route::post('/carts/add/{id}', [CartController::class, 'addToCart'])->name('cart.add');
+
+    /**
+     * Show Cart
+     */
     Route::get('/carts', [CartController::class, 'showCart'])->name('cart.show');
-    Route::delete('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
+    
+    /**
+     * Remove From Cart
+     */
+    Route::delete('/carts/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
     
     /**
      * Store Blog Comment
