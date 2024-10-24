@@ -1,4 +1,4 @@
-<div class="relative container mx-auto bg-white shadow-lg rounded-xl hover:shadow-2xl transition-shadow duration-300 ease-in-out mb-10 overflow-hidden">
+<div class="relative container mx-auto bg-white shadow-lg rounded-xl hover:shadow-2xl transition-shadow duration-300 ease-in-out mb-6 overflow-hidden">
     <div id="slider" class="flex transition-transform duration-700 ease-in-out w-full">
 
         @php
