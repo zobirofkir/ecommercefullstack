@@ -5,7 +5,7 @@
             $products = App\Models\Product::all();
         @endphp
         @foreach ($products as $product)
-            <div class="flex flex-col md:flex-row justify-between items-center md:gap-4 gap-8 w-full flex-none">
+            <div class="flex flex-col md:flex-row justify-between items-center md:gap-4 gap-8 w-full flex-none h-[500px]">
 
                 <div class="md:w-1/2 w-full p-4 md:p-8">
                     <h1 class="text-black md:text-left text-center font-bold text-3xl md:text-4xl">
@@ -20,7 +20,7 @@
                     <img 
                         src="{{ asset('storage/' . $product->images[0]) }}"
                         alt="Product image"
-                        class="w-full min-w-[300px] max-w-[500px] h-[300px] min-h-[300px] max-h-[500px] object-cover rounded-lg shadow-lg hover:rotate-6 transition-transform duration-300"
+                        class="w-full min-w-[300px] max-w-[500px] h-[300px] md:min-h-[450px] min-h-[300px] max-h-[500px] object-cover rounded-lg shadow-lg hover:rotate-6 transition-transform duration-300"
                     >
                 </div>
             </div>
