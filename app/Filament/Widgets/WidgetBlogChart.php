@@ -2,16 +2,17 @@
 
 namespace App\Filament\Widgets;
 
+use App\Models\Blog;
 use App\Models\User;
 use Filament\Widgets\ChartWidget;
 
-class WidgetOrderChart extends ChartWidget
+class WidgetBlogChart extends ChartWidget
 {
-    protected static ?string $heading = 'Orders';
+    protected static ?string $heading = 'Blogs';
 
     protected function getData(): array
     {
-        $monthlyCounts = User::selectRaw('MONTH(created_at) as month, COUNT(*) as count')
+        $monthlyCounts = Blog::selectRaw('MONTH(created_at) as month, COUNT(*) as count')
             ->groupBy('month')
             ->orderBy('month')
             ->pluck('count', 'month')
@@ -25,7 +26,7 @@ class WidgetOrderChart extends ChartWidget
         return [
             'datasets' => [
                 [
-                    'label' => 'Orders Chart',
+                    'label' => 'Blogs Chart',
                     'data' => array_values($data),
                 ],
             ],

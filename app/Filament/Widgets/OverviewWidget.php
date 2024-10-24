@@ -2,6 +2,7 @@
 
 namespace App\Filament\Widgets;
 
+use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Product;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
@@ -24,8 +25,8 @@ class OverviewWidget extends BaseWidget
                     ->chart([1, 10, 5, 2, 20, 30, 45])
                     ->color('success'),
 
-                Stat::make('Orders', Category::count())
-                    ->description('Orders ')
+                Stat::make('Blogs', Blog::count())
+                    ->description('Blogs ')
                     ->descriptionIcon('heroicon-m-arrow-trending-up')
                     ->chart([1, 10, 5, 2, 20, 30, 45])
                     ->color('success'),
