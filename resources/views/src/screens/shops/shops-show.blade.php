@@ -47,7 +47,6 @@
                     <input id="quantity-{{ $product->id }}" type="number" min="1" value="1" class="w-[200px] mt-5 p-1 border border-gray-300 rounded text-center">
                 </div>
 
-                <!-- Add to Cart Button -->
                 <button id="addToCartBtn" data-product-id="{{ $product->id }}" class="bg-green-500 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:bg-green-600 hover:shadow-xl flex items-center">
                     <i class="fas fa-cart-plus mr-2"></i> Add to Cart
                 </button>

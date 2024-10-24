@@ -6,6 +6,7 @@
             $items = App\Services\Facades\ProductFacade::index();
             $products = $items['products'];
         @endphp
+
         @foreach ($products as $product)
             <div class="bg-white shadow-lg rounded-lg overflow-hidden transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl">
                 <img src="{{ asset('storage/' . $product->images[0]) }}" class="w-full h-48 object-cover object-center" alt="Product Image">
@@ -18,10 +19,10 @@
                     </p>
                     <div class="flex justify-between items-center mt-4">
                         <a href="{{ route('shops.show', $product->slug) }}" class="text-green-500 md:text-start text-center hover:text-green-600 font-semibold transition duration-200">View Details</a>
-                        <a href="#" class="text-green-500 hover:text-green-600 font-semibold md:text-start text-center transition duration-200">Add to Cart</a>
                     </div>
                 </div>
             </div>
         @endforeach
     </div>
 </div>
+
