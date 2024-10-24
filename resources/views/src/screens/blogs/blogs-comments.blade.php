@@ -32,6 +32,17 @@
                 <span class="text-sm text-gray-500">{{ $comment->created_at->format('F j, Y, g:i a') }}</span>
             </div>
             <p class="mt-2 text-gray-700">{{ $comment->message }}</p>
+
+            <!-- Check if the authenticated user is the owner of the comment -->
+            @if (Auth::check() && Auth::id() === $comment->user_id)
+                <form action="{{ route('blogs.comments.delete', $comment->id) }}" method="POST" class="mt-2">
+                    @csrf
+                    @method('DELETE') <!-- Use DELETE method for RESTful routes -->
+                    <button type="submit" class="text-red-500 hover:text-red-700">
+                        Delete
+                    </button>
+                </form>
+            @endif
         </div>
     @endforeach
 </div>

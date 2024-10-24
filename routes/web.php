@@ -64,8 +64,7 @@ Route::middleware('auth')->group(function () {
     /**
      * Delete Comment
      */
-    Route::delete('/comments/{comment}', [BlogCommentController::class, 'delete'])->name('comments.delete');
-    
+    Route::delete('/blogs/comments/{comment}', [BlogCommentController::class, 'delete'])->name('blogs.comments.delete');    
     /**
      * Get the authenticated user's profile
      */

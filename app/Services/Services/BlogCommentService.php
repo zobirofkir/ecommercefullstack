@@ -31,9 +31,12 @@ class BlogCommentService implements BlogCommentConstructor
     
     public function delete(BlogComment $comment)
     {
-        $comment->delete();
-        return [
-            "comment" => $comment 
-        ];
+        // Check if the authenticated user is the owner of the comment
+        if (Auth::id() === $comment->user_id) {
+            $comment->delete();
+            return true;
+        }
+    
+        return false;
     }
 }

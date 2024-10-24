@@ -28,6 +28,6 @@ class BlogCommentController extends Controller
     public function delete(BlogComment $comment)
     {
         BlogCommentFacade::delete($comment);
-        return redirect()->back()->with('success', 'Comment deleted successfully.');
+        return redirect()->back();
     }
 }
