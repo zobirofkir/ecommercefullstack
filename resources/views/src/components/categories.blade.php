@@ -5,12 +5,17 @@
             @php
                 $results = App\Services\Facades\CategoryFacade::get();
                 $categories = $results['categories'];
+            
+                if (!empty($categories) && isset($categories[0])) {
+                    $categoryItem = $categories[0];
+                    $showCategory = App\Services\Facades\CategoryFacade::show($categoryItem);
+                    $category = $showCategory['categoryItem'];
+                } else {
 
-                $categoryItem = $categories[0];
-                $showCategory = App\Services\Facades\CategoryFacade::show($categoryItem);
-                $category = $showCategory['categoryItem'];
+                    $category = null; 
+                }
             @endphp
-
+        
             @foreach ($categories as $category)
                 <a href="{{route('category.show', $category->slug)}}">
                     @if($category->id === $category->id)

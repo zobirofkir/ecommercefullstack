@@ -5,6 +5,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductCommentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -46,26 +47,42 @@ Route::get('/contacts', [ContactController::class, 'index'])->name('contacts.ind
 Route::get('/category/{slug}', [CategoryController::class, 'show'])->name('category.show');
 
 /**
- * Get Comments
+ * Get Blog Comments
  */
 Route::get('/comments', [BlogCommentController::class, 'index'])->name('comments.index');
+
+/**
+ * Get Product Comments
+ */
+Route::get('/products/comments', [ProductCommentController::class, 'index'])->name('products.index');
+
 
 /**
  * Authenticated Routes
  */
 Route::middleware('auth')->group(function () {
 
-
+    
     /**
-     * Store Comment
+     * Store Blog Comment
      */
     Route::post('/blogs/{blogId}/comments', [BlogCommentController::class, 'store'])->name('blogs.comments.store');
 
     /**
-     * Delete Comment
+     * Store Product Comment
+     */
+    Route::post('/products/{productId}/comments', [ProductCommentController::class, 'store'])->name('products.comments.store');
+
+    /**
+     * Delete Blog Comment
      */
     Route::delete('/blogs/comments/{comment}', [BlogCommentController::class, 'delete'])->name('blogs.comments.delete');  
       
+    /**
+     * Delete Product Comment
+     */
+    Route::delete('/products/comments/{comment}', [ProductCommentController::class, 'delete'])->name('products.comments.delete');  
+
     /**
      * Get the authenticated user's profile
      */

@@ -7,5 +7,6 @@ return [
     App\Providers\CategoryProvider::class,
     App\Providers\CategoryServiceProvider::class,
     App\Providers\Filament\AdminPanelProvider::class,
+    App\Providers\ProductCommentServiceProvider::class,
     App\Providers\ProductServiceProvider::class,
 ];
