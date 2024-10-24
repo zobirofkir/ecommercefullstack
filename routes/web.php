@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogCommentController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
@@ -45,9 +46,26 @@ Route::get('/contacts', [ContactController::class, 'index'])->name('contacts.ind
 Route::get('/category/{slug}', [CategoryController::class, 'show'])->name('category.show');
 
 /**
+ * Get Comments
+ */
+Route::get('/comments', [BlogCommentController::class, 'index'])->name('comments.index');
+
+/**
  * Authenticated Routes
  */
 Route::middleware('auth')->group(function () {
+
+
+    /**
+     * Store Comment
+     */
+    Route::post('/blogs/{blogId}/comments', [BlogCommentController::class, 'store'])->name('blogs.comments.store');
+
+    /**
+     * Delete Comment
+     */
+    Route::delete('/comments/{comment}', [BlogCommentController::class, 'delete'])->name('comments.delete');
+    
     /**
      * Get the authenticated user's profile
      */

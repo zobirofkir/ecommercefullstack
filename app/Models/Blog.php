@@ -18,6 +18,11 @@ class Blog extends Model
         'image' => 'array',
     ];
 
+    public function comments()
+    {
+        return $this->hasMany(BlogComment::class);
+    }
+    
     protected static function boot()
     {
         parent::boot();
