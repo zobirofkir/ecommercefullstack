@@ -7,7 +7,7 @@
             $items = App\Services\Facades\BlogFacade::index();
             $blogs = $items['blogs'];
         @endphp
-        <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6 md:px-0 px-5">
+        <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-6 md:px-0 px-5">
             @foreach ($blogs as $blog)
                 <div class="bg-white shadow-lg rounded-lg p-4 transition-transform duration-300 ease-in-out transform hover:scale-105 hover:-rotate-3">
                     <a href="{{route('blogs.show', $blog->slug)}}" class="">
