@@ -21,12 +21,12 @@
 
     @include('src.components.search.search')
 
-    @if(isset($results) && $results->isNotEmpty())
+    @if(isset($products) && $products->isNotEmpty() || isset($blogs) && $blogs->isNotEmpty())
         <div class="container mx-auto p-6 mt-6 mb-10 h-screen mt-[100px]">
             <h1 class="text-3xl font-bold mb-6 text-center text-gray-900">Search Results</h1>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                @foreach($results as $product)
+                @foreach($products as $product)
                     <div class="bg-white shadow-lg rounded-lg overflow-hidden transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl">
                         <img src="{{ asset('storage/' . $product->images[0]) }}" class="w-full h-48 object-cover object-center" alt="Product Image">
                         <div class="p-4">
@@ -44,10 +44,30 @@
                     </div>
                 @endforeach
             </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                @foreach($blogs as $blog)
+                    <div class="bg-white shadow-lg rounded-lg overflow-hidden transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl">
+                        <img src="{{ asset('storage/' . $blog->image[0]) }}" class="w-full h-48 object-cover object-center" alt="Blog Image">
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-gray-800 hover:text-green-600 transition duration-200">
+                                {{ $blog->title }}
+                            </h3>
+                            <p class="text-gray-600 mt-2 truncate">
+                                {{ Str::limit($blog->description, 80) }}
+                            </p>
+                            <div class="flex justify-between items-center mt-4">
+                                <a href="{{ route('blogs.show', $blog->slug) }}" class="text-green-500 hover:text-green-600 font-semibold transition duration-200">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+
         </div>
     @else
         <div class="container mx-auto flex justify-center items-center h-screen">
-            <p class="text-center text-gray-600">No products found.</p>
+            <p class="text-center text-gray-600">No products or blogs found.</p>
         </div>
     @endif
 

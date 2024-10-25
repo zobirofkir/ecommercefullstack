@@ -9,7 +9,6 @@ class SearchController extends Controller
 {
     public function search(Request $request)
     {
-        $results = SearchFacade::search($request->search); 
-        return view('src.screens.search.search-result', ['results' => $results]);
+        return SearchFacade::search($request->search); 
     }
 }
