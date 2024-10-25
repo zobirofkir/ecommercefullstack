@@ -52,7 +52,7 @@
         </div>
 
         <div class="mt-6 mb-20">
-            @include('src.components.slider')
+            @include('src.components.slider.slider')
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">

@@ -27,7 +27,7 @@
 
     @include('src.components.categories.categories')
 
-    @include('src.components.slider')
+    @include('src.components.slider.slider')
     <main>
         {{ $slot }}
     </main>
