@@ -9,11 +9,11 @@ class ProductController extends Controller
 {
     public function index()
     {
-        return view('src.screens.shops.shops');
+        return view('src.screens.products.products');
     }
 
     public function show($slug)
     {
-        return view('src.screens.shops.shops-show');
+        return view('src.screens.products.products-show');
     }
 }

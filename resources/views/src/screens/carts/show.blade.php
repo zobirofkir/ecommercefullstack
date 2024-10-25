@@ -22,7 +22,7 @@
 </head>
 
 <body class="bg-gray-100">
-    @include('src.components.header')
+    @include('src.components.navigations.header')
 
     @if (Auth::user()->orders->count() > 0)
         <div class="mt-[100px] flex justify-end container mx-auto md:px-0 px-5">
@@ -126,7 +126,7 @@
                     </div>
     </div>
 
-    @include('src.components.footer')
+    @include('src.components.navigations.footer')
 
     <script src="{{ asset('src/js/dropdown.js') }}"></script>
     <script src="{{ asset('src/js/slider.js') }}"></script>

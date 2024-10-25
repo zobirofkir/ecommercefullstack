@@ -14,7 +14,7 @@ class ProductCommentController extends Controller
     {
         $product = Product::findOrFail($productId);
         $comments = ProductCommentFacade::index($productId);
-        return view('src.screens.shops.shops-comments')->with(compact('product', 'comments'));
+        return view('src.screens.products.products-comments')->with(compact('product', 'comments'));
     }
 
     public function store(ProductCommentRequest $request, $productId)

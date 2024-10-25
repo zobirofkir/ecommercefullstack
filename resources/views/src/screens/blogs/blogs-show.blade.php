@@ -18,7 +18,7 @@
 
 <body class="bg-gray-100">
     
-    @include('src.components.header')
+    @include('src.components.navigations.header')
 
     @php
         $slug = request('slug');
@@ -52,7 +52,7 @@
             @include('src.screens.blogs.blogs-comments')
         </div>
     </div>
-    @include('src.components.footer')
+    @include('src.components.navigations.footer')
 
     <script src="{{asset('src/js/dropdown.js')}}"></script>
     <script src="{{asset('src/js/slider.js')}}"></script>

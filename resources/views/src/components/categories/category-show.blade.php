@@ -21,11 +21,11 @@
     </title>
 </head>
 <body>
-    @include('src.components.header')
+    @include('src.components.navigations.header')
     
     @include('src.components.search')
 
-    @include('src.components.categories')
+    @include('src.components.categories.categories')
 
 
     @php
@@ -67,8 +67,8 @@
                         {{ $product->description }}
                     </p>
                     <div class="flex justify-between items-center mt-4">
-                        <a href="{{ route('shops.show', $product->slug) }}" class="text-green-500 md:text-start text-center hover:text-green-600 font-semibold transition duration-200">View Details</a>
-                        <a href="{{ route('shops.show', $product->slug) }}" class="text-green-500 md:text-start text-center hover:text-green-600 font-semibold transition duration-200">{{$product->prix }} MAD</a>
+                        <a href="{{ route('products.show', $product->slug) }}" class="text-green-500 md:text-start text-center hover:text-green-600 font-semibold transition duration-200">View Details</a>
+                        <a href="{{ route('products.show', $product->slug) }}" class="text-green-500 md:text-start text-center hover:text-green-600 font-semibold transition duration-200">{{$product->prix }} MAD</a>
                     </div>
                 </div>
             </div>
@@ -77,7 +77,7 @@
     </div>
 
     @include('src.components.lister')
-    @include('src.components.footer')
+    @include('src.components.navigations.footer')
 
     <script src="{{asset('src/js/dropdown.js')}}"></script>
     <script src="{{asset('src/js/slider.js')}}"></script>

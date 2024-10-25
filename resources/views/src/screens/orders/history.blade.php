@@ -12,7 +12,7 @@
     <title>Order History</title>
 </head>
 <body class="bg-gray-100">
-    @include('src.components.header')
+    @include('src.components.navigations.header')
 
     <div class="flex flex-col justify-center items-center min-h-screen mt-[50px]">
 
@@ -48,7 +48,7 @@
     
     </div>
 
-    @include('src.components.footer')
+    @include('src.components.navigations.footer')
 
     <script src="{{ asset('src/js/dropdown.js') }}"></script>
     <script src="{{ asset('src/js/slider.js') }}"></script>

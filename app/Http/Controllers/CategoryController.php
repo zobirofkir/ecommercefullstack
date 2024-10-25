@@ -10,7 +10,7 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        return view('src.components.categories');
+        return view('src.components.categories.categories');
     }
 
     public function show()

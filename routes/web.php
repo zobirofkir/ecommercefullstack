@@ -30,12 +30,12 @@ Route::get('/blogs/{slug}', [BlogController::class, 'show'])->name('blogs.show')
 /**
  * Route Get Products
  */
-Route::get('/shops', [ProductController::class, 'index'])->name('shops.index');
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 
 /**
  * Show Product Route
  */
-Route::get('/shops/{slug}', [ProductController::class, 'show'])->name('shops.show');
+Route::get('/products/{slug}', [ProductController::class, 'show'])->name('products.show');
 
 /**
  * Contact Route

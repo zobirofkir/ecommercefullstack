@@ -21,11 +21,11 @@
     </title>
 </head>
 <body>
-    @include('src.components.header')
+    @include('src.components.navigations.header')
     
     @include('src.components.search')
 
-    @include('src.components.categories')
+    @include('src.components.categories.categories')
 
     
     @foreach ($blogs->take(1) as $blog)
@@ -59,7 +59,7 @@
     @include('src.components.blogs.blogs')
     
     @include('src.components.lister')
-    @include('src.components.footer')
+    @include('src.components.navigations.footer')
 
     <script src="{{asset('src/js/dropdown.js')}}"></script>
     <script src="{{asset('src/js/slider.js')}}"></script>

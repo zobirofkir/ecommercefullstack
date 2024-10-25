@@ -20,9 +20,9 @@
     </title>
 </head>
 <body class="bg-gray-50 text-gray-800">
-    @include('src.components.header')
+    @include('src.components.navigations.header')
     @include('src.components.search')
-    @include('src.components.categories')
+    @include('src.components.categories.categories')
 
     @php
         $items = App\Services\Facades\CategoryFacade::get();
@@ -43,7 +43,7 @@
     </div>    
 
     @include('src.components.lister')
-    @include('src.components.footer')
+    @include('src.components.navigations.footer')
 
     <script src="{{asset('src/js/dropdown.js')}}"></script>
     <script src="{{asset('src/js/slider.js')}}"></script>

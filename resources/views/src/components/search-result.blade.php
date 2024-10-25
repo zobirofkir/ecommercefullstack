@@ -17,7 +17,7 @@
 </head>
 
 <body class="bg-gray-100">
-    @include('src.components.header')
+    @include('src.components.navigations.header')
 
     @if(isset($results) && $results->isNotEmpty())
         <div class="container mx-auto p-6 mt-6 mb-10 h-screen mt-20">
@@ -35,8 +35,8 @@
                                 {{ Str::limit($product->description, 80) }}
                             </p>
                             <div class="flex justify-between items-center mt-4">
-                                <a href="{{ route('shops.show', $product->slug) }}" class="text-green-500 hover:text-green-600 font-semibold transition duration-200">View Details</a>
-                                <a href="{{ route('shops.show', $product->slug) }}" class="text-green-500 md:text-start text-center hover:text-green-600 font-semibold transition duration-200">{{$product->prix }} MAD</a>
+                                <a href="{{ route('products.show', $product->slug) }}" class="text-green-500 hover:text-green-600 font-semibold transition duration-200">View Details</a>
+                                <a href="{{ route('products.show', $product->slug) }}" class="text-green-500 md:text-start text-center hover:text-green-600 font-semibold transition duration-200">{{$product->prix }} MAD</a>
                             </div>
                         </div>
                     </div>
@@ -49,7 +49,7 @@
         </div>
     @endif
 
-    @include('src.components.footer')
+    @include('src.components.navigations.footer')
 
     <script src="{{asset('src/js/dropdown.js')}}"></script>
     <script src="{{asset('src/js/slider.js')}}"></script>

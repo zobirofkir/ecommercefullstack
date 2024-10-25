@@ -26,11 +26,11 @@
                 </a>
 
                 <a href="{{url('/blogs')}}">
-                    <li class="text-black font-bold text-md px-5 py-1 rounded-full">Blog</li>
+                    <li class="text-black font-bold text-md px-5 py-1 rounded-full">Blogs</li>
                 </a>
                 
-                <a href="{{url('/shops')}}">
-                    <li class="text-black font-bold text-md px-5 py-1 rounded-full">Shop</li>
+                <a href="{{url('/products')}}">
+                    <li class="text-black font-bold text-md px-5 py-1 rounded-full">Products</li>
                 </a>
 
                 <a href="{{url('/categories')}}">
@@ -91,11 +91,11 @@
             </a>
 
             <a href="{{url('/blogs')}}">
-                <li class="text-black text-lg font-medium hover:bg-green-400 hover:text-white px-3 py-2 rounded-lg transition-colors duration-200 cursor-pointer">Blog</li>
+                <li class="text-black text-lg font-medium hover:bg-green-400 hover:text-white px-3 py-2 rounded-lg transition-colors duration-200 cursor-pointer">Blogs</li>
             </a>
 
-            <a href="{{url('/shops')}}">
-                <li class="text-black text-lg font-medium hover:bg-green-400 hover:text-white px-3 py-2 rounded-lg transition-colors duration-200 cursor-pointer">Shop</li>
+            <a href="{{url('/products')}}">
+                <li class="text-black text-lg font-medium hover:bg-green-400 hover:text-white px-3 py-2 rounded-lg transition-colors duration-200 cursor-pointer">Products</li>
             </a>
 
             <a href="{{url('/categories')}}">
