@@ -19,34 +19,39 @@ class ViewOrder extends ViewRecord
     {
         return [
             Action::make('accept')
-                    ->label('Accept')
-                    ->color('success')
-                    ->action(function ($record) {
-                        Mail::to($record->user->email)->send(new AcceptedMail($record));
-                    }),
+                ->label('Accept')
+                ->color('success')
+                ->action(function ($record) {
+                    Mail::to($record->user->email)->send(new AcceptedMail($record));
+                })
+                ->successNotification(function () {
+                    return [
+                        'title' => 'Order Accepted',
+                        'body' => 'Your order has been accepted.',
+                    ];
+                }),
 
-            Action::make('Reject')
-                    ->label('Reject')
-                    ->color('danger')
-                    ->action(function ($record) {
-                        Mail::to($record->user->email)->send(new RejectedMail($record));
-                    }),
+            Action::make('reject')
+                ->label('Reject')
+                ->color('danger')
+                ->action(function ($record) {
+                    Mail::to($record->user->email)->send(new RejectedMail($record));
+                }),
 
             Action::make('downloadPdf')
-                    ->label('Download PDF')
-                    ->action(fn ($record) => $this->generatePdf($record))
+                ->label('Download PDF')
+                ->action(fn($record) => $this->generatePdf($record))
         ];
     }
 
     protected function generatePdf($record)
     {
-        // Extract necessary data from the record
-        $user_name = $record->user->name; // Assuming user relationship exists
+        $user_name = $record->user->name;
         $user_email = $record->user->email;
-        $phone = $record->phone; // Assuming phone is available in the record
-        $address = $record->address; // Assuming address is available in the record
-        $products = $record->orderItems; // Assuming orderItems relationship exists
-        $total = $record->total; // Assuming total is available in the record
+        $phone = $record->phone;
+        $address = $record->address;
+        $products = $record->orderItems;
+        $total = $record->total;
 
         $pdf = Pdf::loadView('src.screens.orders.pdf', [
             'user_name' => $user_name,
@@ -58,10 +63,13 @@ class ViewOrder extends ViewRecord
             'record' => $record,
         ]);
 
-        return response()->streamDownload(
-            fn () => print($pdf->output()), 
-            "order-{$record->id}.pdf"
+        return response()->stream(
+            fn() => print($pdf->output()), 
+            200, 
+            [
+                'Content-Type' => 'application/pdf',
+                'Content-Disposition' => "attachment; filename=\"order-{$record->id}.pdf\""
+            ]
         );
     }
-
 }
