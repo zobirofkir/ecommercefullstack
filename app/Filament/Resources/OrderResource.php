@@ -83,6 +83,11 @@ class OrderResource extends Resource
                     TextEntry::make('orderItems.product.title')->label("Product Title : "),
                     TextEntry::make('orderItems.product.description')->label("Product Description : "),
                     TextEntry::make('orderItems.product.quantity')->label("Product Quantity : ")->badge(),
+                    TextEntry::make('orderItems.product.prix')->label("Product Price : ")->badge()->prefix("MAD "),
+                    TextEntry::make('total')->label("Total : ")->badge()->prefix("MAD "),
+                    
+                    TextEntry::make('orderItems.product.phone')->label("Product Phone : "),
+                    TextEntry::make('orderItems.product.address')->label("Product Address : "),
                 ])
             ]);
     }

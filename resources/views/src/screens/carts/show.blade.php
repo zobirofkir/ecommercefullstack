@@ -25,13 +25,11 @@
     @include('src.components.header')
 
     @if (Auth::user()->orders->count() > 0)
-    
         <div class="mt-[100px] flex justify-end container mx-auto md:px-0 px-5">
             <a href="{{route('order.history')}}" class="bg-green-400 px-6 py-3 rounded-lg text-white">
                 <i class="fa-solid fa-list-check mx-5"></i> ({{ Auth::user()->orders->count() }})
             </a>
         </div>
-
     @endif
 
     <div class="min-h-screen flex items-center justify-center">
@@ -75,12 +73,9 @@
                     </div>
 
                     <div class="mt-6 flex justify-end">
-                        <form action="{{ route('cart.checkout') }}" method="POST">
-                            @csrf
-                            <button type="submit" class="bg-green-500 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-green-600">
-                                Proceed to Checkout
-                            </button>
-                        </form>
+                        <button onclick="showModal()" class="bg-green-500 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-green-600">
+                            Proceed to Checkout
+                        </button>
                     </div>
                 </div>
             @else
@@ -94,10 +89,43 @@
         </div>
     </div>
 
+    <!-- Modal -->
+    <div id="checkoutModal" class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 hidden">
+        <div class="bg-white p-8 rounded-lg shadow-lg w-96">
+            <h2 class="text-xl font-semibold mb-4">Enter Your Details</h2>
+            <form action="{{ route('cart.checkout') }}" method="POST" id="checkoutForm">
+                @csrf
+                <div class="mb-4">
+                    <label for="phone" class="block text-gray-700">Phone Number:</label>
+                    <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required class="mt-1 block w-full border border-gray-300 rounded-lg p-2">
+                </div>
+
+                <div class="mb-4">
+                    <label for="address" class="block text-gray-700">Address:</label>
+                    <textarea id="address" name="address" required class="mt-1 block w-full border border-gray-300 rounded-lg p-2" placeholder="Enter your address"></textarea>
+                </div>
+
+                <div class="flex justify-end">
+                    <button type="button" onclick="hideModal()" class="bg-red-500 text-white px-4 py-2 rounded-lg mr-2">Cancel</button>
+                    <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded-lg">Confirm</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     @include('src.components.footer')
 
     <script src="{{ asset('src/js/dropdown.js') }}"></script>
     <script src="{{ asset('src/js/slider.js') }}"></script>
+    <script>
+        function showModal() {
+            document.getElementById('checkoutModal').classList.remove('hidden');
+        }
+
+        function hideModal() {
+            document.getElementById('checkoutModal').classList.add('hidden');
+        }
+    </script>
 </body>
 
 </html>
