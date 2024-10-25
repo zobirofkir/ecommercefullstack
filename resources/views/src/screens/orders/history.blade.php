@@ -22,7 +22,6 @@
             @if($orders->isNotEmpty())
                 @foreach($orders as $order)
                     <div class="mb-6 border-b pb-6">
-                        <h2 class="text-lg font-semibold">Order #{{ $order->id }} - {{ $order->created_at->format('d M Y') }}</h2>
                         <div class="flex justify-center items-center">
                             <p class="text-black font-bold">Total: MAD {{ number_format($order->total, 2) }}</p>
                         </div>
