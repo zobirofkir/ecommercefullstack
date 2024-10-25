@@ -24,7 +24,6 @@ class ProductCommentRequest extends FormRequest
         return [
             'product_id' => 'required|exists:products,id',
             'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
             'message' => 'required|string|max:255',
         ];
     }

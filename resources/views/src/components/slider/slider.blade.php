@@ -11,7 +11,7 @@
                     <h1 class="text-black md:text-left text-center font-bold text-3xl md:text-4xl">
                         {{ $product->title }}
                     </h1>
-                    <p class="text-gray-600 mt-4 md:mt-6 text-lg leading-relaxed">
+                    <p class="text-gray-600 mt-4 md:mt-6 text-lg md:block hidden leading-relaxed">
                         {{Str::limit($product->description, 150)}}
                     </p>
                 </div>

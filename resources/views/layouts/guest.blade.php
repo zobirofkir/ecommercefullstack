@@ -19,7 +19,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body>
-        @include('src.components.header')
+        @include('src.components.navigations.header')
         
     
         <div class="flex flex-col justify-center items-center min-h-screen">
@@ -34,7 +34,7 @@
             </div>
         </div>
 
-        @include('src.components.footer')
+        @include('src.components.navigations.footer')
         <script src="src/js/dropdown.js"></script>
 
     </body>

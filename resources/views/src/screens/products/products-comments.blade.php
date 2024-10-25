@@ -13,9 +13,6 @@
                 <input type="text" name="name" class="w-full border border-gray-300 rounded-lg p-2" placeholder="Your Name" required>
             </div>
             <div class="mb-4">
-                <input type="email" name="email" class="w-full border border-gray-300 rounded-lg p-2" placeholder="Your Email" required>
-            </div>
-            <div class="mb-4">
                 <textarea name="message" rows="4" class="w-full border border-gray-300 rounded-lg p-2" placeholder="Add your comment here..." required></textarea>
             </div>
             <input type="hidden" name="product_id" value="{{ $product->id }}">

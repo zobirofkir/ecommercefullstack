@@ -21,7 +21,10 @@ class ProductCommentService implements ProductCommentConstructor
         $commentData = $request->validated();
         $commentData['user_id'] = Auth::id();
         
-        $comment = ProductComment::create($commentData);
+        $comment = ProductComment::create([
+            "email" => Auth::user()->email,
+            ...$commentData
+        ]);
     
         return [
             "comment" => $comment
