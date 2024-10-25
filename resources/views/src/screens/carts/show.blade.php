@@ -97,20 +97,33 @@
                 @csrf
                 <div class="mb-4">
                     <label for="phone" class="block text-gray-700">Phone Number:</label>
-                    <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required class="mt-1 block w-full border border-gray-300 rounded-lg p-2">
+                    <input 
+                        type="text" 
+                        id="phone" 
+                        name="phone" 
+                        placeholder="Enter your phone number" 
+                        value="{{ old('phone', Auth::check() ? optional(App\Models\Order::where('user_id', Auth::id())->latest()->first())->phone : '') }}" 
+                        required 
+                        class="mt-1 block w-full border border-gray-300 rounded-lg p-2"
+                    >
                 </div>
-
+            
                 <div class="mb-4">
                     <label for="address" class="block text-gray-700">Address:</label>
-                    <textarea id="address" name="address" required class="mt-1 block w-full border border-gray-300 rounded-lg p-2" placeholder="Enter your address"></textarea>
+                    <textarea 
+                        id="address" 
+                        name="address" 
+                        required 
+                        class="mt-1 block w-full border border-gray-300 rounded-lg p-2" 
+                        placeholder="Enter your address">{{ old('address', Auth::check() ? optional(App\Models\Order::where('user_id', Auth::id())->latest()->first())->address : '') }}</textarea>
                 </div>
-
+            
                 <div class="flex justify-end">
                     <button type="button" onclick="hideModal()" class="bg-red-500 text-white px-4 py-2 rounded-lg mr-2">Cancel</button>
                     <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded-lg">Confirm</button>
                 </div>
             </form>
-        </div>
+                    </div>
     </div>
 
     @include('src.components.footer')

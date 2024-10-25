@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Services\Constructor;
+
+use App\Http\Requests\OrderInfoRequest;
 use Illuminate\Http\Request;
 
 interface CartConstructor
@@ -11,7 +13,7 @@ interface CartConstructor
 
     public function removeFromCart($id);
 
-    public function checkout(Request $request);
+    public function checkout(OrderInfoRequest $request);
 
     public function orderHistory();
 }

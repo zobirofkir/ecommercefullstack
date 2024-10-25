@@ -1,6 +1,7 @@
 <?php
 namespace App\Services\Services;
 
+use App\Http\Requests\OrderInfoRequest;
 use App\Mail\CheckoutMail;
 use Illuminate\Http\Request;
 use App\Models\Product;
@@ -63,7 +64,7 @@ class CartService implements CartConstructor
     }
 
 
-    public function checkout(Request $request)
+    public function checkout(OrderInfoRequest $request)
     {
         $userId = Auth::id();
         $cartItems = Cart::where('user_id', $userId)->with('product')->get();
@@ -72,27 +73,15 @@ class CartService implements CartConstructor
             return response()->json(['message' => 'Your cart is empty.'], 400);
         }
     
-        // Validate phone and address
-        $request->validate([
-            'phone' => 'required|string|max:15',
-            'address' => 'required|string|max:255',
-        ]);
-    
-        $total = $cartItems->sum(function ($cartItem) {
-            $price = (float) $cartItem->product->prix;
-            $quantity = (int) $cartItem->quantity;
-            return $price * $quantity;
-        });
-    
-        // Save order with phone and address
+        $request->validated();
+        
         $order = Order::create([
             'user_id' => $userId,
-            'total' => $total,
+            'total' => $this->calculateTotal($cartItems),
             'phone' => $request->phone,
             'address' => $request->address,
         ]);
     
-        // Create order items
         foreach ($cartItems as $cartItem) {
             OrderItem::create([
                 'order_id' => $order->id,
@@ -102,10 +91,8 @@ class CartService implements CartConstructor
             ]);
         }
     
-        // Send checkout email with additional details
-        Mail::to('zobirofkir19@gmail.com')->send(new CheckoutMail($cartItems, $total, $request->phone, $request->address));
+        Mail::to('zobirofkir19@gmail.com')->send(new CheckoutMail($cartItems, $this->calculateTotal($cartItems), $request->phone, $request->address));
     
-        // Clear the user's cart
         Cart::where('user_id', $userId)->delete();
     
         return true;
@@ -113,11 +100,22 @@ class CartService implements CartConstructor
     
     public function orderHistory()
     {
-        $orders = Order::where('user_id', Auth::id())->with('orderItems.product')->get();
+        $orders = Order::where('user_id', Auth::id())->orderBy('created_at', 'desc')->with('orderItems.product')->get();
         
         return [
             'orders' => $orders
         ];
+    }
+
+    private function calculateTotal($cartItems)
+    {
+        $total = $cartItems->sum(function ($cartItem) {
+            $price = (float) $cartItem->product->prix;
+            $quantity = (int) $cartItem->quantity;
+            return $price * $quantity;
+        });
+    
+        return $total;
     }
 
 

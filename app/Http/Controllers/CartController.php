@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\OrderInfoRequest;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Cart;
@@ -30,7 +31,7 @@ class CartController extends Controller
         return redirect()->back();
     }
 
-    public function checkout(Request $request)
+    public function checkout(OrderInfoRequest $request)
     {
         CartFacade::checkout( $request );
         return redirect()->back();
