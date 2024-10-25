@@ -9,7 +9,6 @@
 
     @vite('resources/css/app.css')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link rel="stylesheet" href="src/css/main.css">
     <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet" />
 
     <title>
@@ -23,18 +22,17 @@
 
 <body class="bg-gray-100">
     @include('src.components.navigations.header')
-
     @include('src.components.search.search')
 
     @if (Auth::user()->orders->count() > 0)
-        <div class="mt-[20px] flex justify-end container mx-auto md:px-0 px-5">
-            <a href="{{route('order.history')}}" class="bg-green-400 px-6 py-3 rounded-lg text-white">
-                <i class="fa-solid fa-list-check mx-5"></i> ({{ Auth::user()->orders->count() }})
+        <div class="mt-4 flex justify-end container mx-auto md:px-0 px-5">
+            <a href="{{route('order.history')}}" class="bg-green-400 px-6 py-3 rounded-lg text-white transition hover:bg-green-500 flex items-center">
+                <i class="fa-solid fa-list-check mx-2"></i> ({{ Auth::user()->orders->count() }})
             </a>
         </div>
     @endif
 
-    <div class="min-h-screen flex items-center justify-center -mt-[200px]">
+    <div class="min-h-screen flex items-center justify-center md:-mt-24 -mt-20">
         <div class="container mx-auto my-10 p-8 bg-white shadow-lg rounded-lg">
             <h1 class="text-3xl font-extrabold mb-6 text-gray-800">Your Cart</h1>
 
@@ -50,7 +48,7 @@
 
                         <div class="flex items-center justify-between p-4 bg-gray-50 border border-gray-200 rounded-lg shadow-sm transition hover:shadow-md">
                             <div class="flex items-center">
-                                <img src="{{ asset('storage/' . $cartItem->product->images[0]) }}" alt="{{ $cartItem->product->title }}" class="w-[100px] h-auto rounded-lg shadow-md">
+                                <img src="{{ asset('storage/' . $cartItem->product->images[0]) }}" alt="{{ $cartItem->product->title }}" class="w-24 h-auto rounded-lg shadow-md">
                                 <div class="ml-4">
                                     <h2 class="text-lg font-semibold text-gray-800">{{ $cartItem->product->title }}</h2>
                                     <p class="text-gray-600">${{ number_format($price, 2) }}</p>
@@ -75,7 +73,7 @@
                     </div>
 
                     <div class="mt-6 flex justify-end">
-                        <button onclick="showModal()" class="bg-green-500 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-green-600">
+                        <button onclick="showModal()" class="bg-green-500 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-green-600 transition">
                             Proceed to Checkout
                         </button>
                     </div>
@@ -83,7 +81,7 @@
             @else
                 <div class="text-center py-10">
                     <h2 class="text-2xl font-bold text-gray-600">Your cart is empty</h2>
-                    <a href="/" class="mt-4 inline-block bg-blue-500 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-blue-600">
+                    <a href="/" class="mt-4 inline-block bg-blue-500 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-blue-600 transition">
                         Continue Shopping
                     </a>
                 </div>
@@ -106,7 +104,7 @@
                         placeholder="Enter your phone number" 
                         value="{{ old('phone', Auth::check() ? optional(App\Models\Order::where('user_id', Auth::id())->latest()->first())->phone : '') }}" 
                         required 
-                        class="mt-1 block w-full border border-gray-300 rounded-lg p-2"
+                        class="mt-1 block w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring focus:ring-green-200"
                     >
                 </div>
             
@@ -116,16 +114,16 @@
                         id="address" 
                         name="address" 
                         required 
-                        class="mt-1 block w-full border border-gray-300 rounded-lg p-2" 
+                        class="mt-1 block w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring focus:ring-green-200" 
                         placeholder="Enter your address">{{ old('address', Auth::check() ? optional(App\Models\Order::where('user_id', Auth::id())->latest()->first())->address : '') }}</textarea>
                 </div>
             
                 <div class="flex justify-end">
-                    <button type="button" onclick="hideModal()" class="bg-red-500 text-white px-4 py-2 rounded-lg mr-2">Cancel</button>
-                    <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded-lg">Confirm</button>
+                    <button type="button" onclick="hideModal()" class="bg-red-500 text-white px-4 py-2 rounded-lg mr-2 transition hover:bg-red-600">Cancel</button>
+                    <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded-lg transition hover:bg-green-600">Confirm</button>
                 </div>
             </form>
-                    </div>
+        </div>
     </div>
 
     @include('src.components.navigations.footer')
