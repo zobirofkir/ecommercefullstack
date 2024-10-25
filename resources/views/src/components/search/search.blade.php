@@ -8,7 +8,7 @@
             
             <form action="{{ route('products.search') }}" method="GET" class="flex min-w-[200px] gap-4 items-center">
                 <input type="text" name="search" placeholder="Search ..." class="text-black font-bold w-full max-w-xs sm:max-w-md lg:max-w-lg rounded-full px-4 py-2">
-                <input type="submit" value="Search" class="text-black font-bold hover:-rotate-3 transition-transform duration-300 bg-white rounded-full bg-green-100 cursor-pointer">
+                <input type="submit" value="Search" class="text-black font-bold hover:-rotate-3 transition-transform duration-300 bg-green-200 px-4 py-2 rounded-full bg-green-100 cursor-pointer">
             </form>
         </div>
     </div>
