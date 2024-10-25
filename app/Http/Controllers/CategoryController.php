@@ -15,6 +15,6 @@ class CategoryController extends Controller
 
     public function show()
     {
-        return view('src.components.categories.category-show');
+        return view('src.screens.categories.category-show');
     }
 }
