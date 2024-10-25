@@ -40,7 +40,7 @@
             <div class="w-full lg:w-1/2 lg:ml-10 mt-8 lg:mt-0 space-y-6">
                 <h1 class="text-3xl lg:text-4xl font-extrabold mb-4 text-gray-800">{{ $product->title }}</h1>
                 <p class="text-gray-700 mb-6 leading-relaxed">{{ $product->description }}</p>
-                <p class="text-2xl font-semibold text-green-600 mb-8">${{ $product->prix}}</p>
+                <p class="text-2xl font-semibold text-green-600 mb-8">MAD {{ $product->prix}}</p>
 
                 <div class="mt-4 w-full">
                     <label for="quantity-{{ $product->id }}" class="block text-gray-600">Quantity</label>
