@@ -16,7 +16,7 @@
 
     @include('src.components.search.search')
 
-    <div class="flex flex-col justify-center items-center min-h-screen -mt-[200px]">
+    <div class="flex flex-col justify-center items-center min-h-screen ">
 
         <div class="container mx-auto my-10 p-8 bg-white shadow-lg rounded-lg">
             <h1 class="text-3xl font-extrabold mb-6 text-gray-800">
