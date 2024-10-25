@@ -63,26 +63,35 @@ class CartService implements CartConstructor
     }
 
 
-    public function checkout()
+    public function checkout(Request $request)
     {
         $userId = Auth::id();
         $cartItems = Cart::where('user_id', $userId)->with('product')->get();
-
+    
         if ($cartItems->isEmpty()) {
             return response()->json(['message' => 'Your cart is empty.'], 400);
         }
-
+    
+        // Validate phone and address
+        $request->validate([
+            'phone' => 'required|string|max:15',
+            'address' => 'required|string|max:255',
+        ]);
+    
         $total = $cartItems->sum(function ($cartItem) {
             $price = (float) $cartItem->product->prix;
             $quantity = (int) $cartItem->quantity;
             return $price * $quantity;
         });
-
+    
+        // Save order with phone and address
         $order = Order::create([
             'user_id' => $userId,
             'total' => $total,
+            'phone' => $request->phone,
+            'address' => $request->address,
         ]);
-
+    
         // Create order items
         foreach ($cartItems as $cartItem) {
             OrderItem::create([
@@ -92,14 +101,16 @@ class CartService implements CartConstructor
                 'price' => $cartItem->product->prix,
             ]);
         }
-
-        Mail::to('zobirofkir19@gmail.com')->send(new CheckoutMail($cartItems, $total));
-
+    
+        // Send checkout email with additional details
+        Mail::to('zobirofkir19@gmail.com')->send(new CheckoutMail($cartItems, $total, $request->phone, $request->address));
+    
+        // Clear the user's cart
         Cart::where('user_id', $userId)->delete();
-
+    
         return true;
     }
-
+    
     public function orderHistory()
     {
         $orders = Order::where('user_id', Auth::id())->with('orderItems.product')->get();

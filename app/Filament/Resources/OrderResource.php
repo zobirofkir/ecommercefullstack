@@ -53,7 +53,7 @@ class OrderResource extends Resource
                 TextColumn::make("orderItems.product.quantity")
                             ->label("Product Quantity")->badge(),
 
-            ])
+            ])->defaultSort("created_at", "desc")
             ->filters([
                 //
             ])
@@ -86,8 +86,8 @@ class OrderResource extends Resource
                     TextEntry::make('orderItems.product.prix')->label("Product Price : ")->badge()->prefix("MAD "),
                     TextEntry::make('total')->label("Total : ")->badge()->prefix("MAD "),
                     
-                    TextEntry::make('orderItems.product.phone')->label("Product Phone : "),
-                    TextEntry::make('orderItems.product.address')->label("Product Address : "),
+                    TextEntry::make('phone')->label("Phone: ")->badge()->color('success'),
+                    TextEntry::make('address')->label("Address: ")->badge()->color('success'),
                 ])
             ]);
     }

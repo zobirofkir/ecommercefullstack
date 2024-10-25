@@ -11,7 +11,7 @@ interface CartConstructor
 
     public function removeFromCart($id);
 
-    public function checkout();
-    
+    public function checkout(Request $request);
+
     public function orderHistory();
 }

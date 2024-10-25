@@ -30,9 +30,9 @@ class CartController extends Controller
         return redirect()->back();
     }
 
-    public function checkout()
+    public function checkout(Request $request)
     {
-        CartFacade::checkout();
+        CartFacade::checkout( $request );
         return redirect()->back();
     }
 
