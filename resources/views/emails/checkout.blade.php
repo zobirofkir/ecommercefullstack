@@ -78,8 +78,8 @@
             <li>
                 <div class="product-title">{{ $cartItem->product->title }}</div>
                 <div class="product-details">
-                    Price: ${{ number_format($cartItem->product->prix, 2) }}<br>
-                    Subtotal: ${{ number_format($cartItem->product->prix * $cartItem->quantity, 2) }}<br>
+                    Price: MAD {{ number_format($cartItem->product->prix, 2) }}<br>
+                    Subtotal: MAD {{ number_format($cartItem->product->prix * $cartItem->quantity, 2) }}<br>
                     Quantity: {{ $cartItem->quantity }}<br>
                     Category: {{ $cartItem->product->category->title }}<br>
                     <br>

@@ -39,12 +39,20 @@ class OrderResource extends Resource
         return $table
             ->columns([
                 TextColumn::make("user.name")
+                            ->label("User Name")
                             ->searchable(),
+
                 TextColumn::make("user.email")
+                            ->label("User Email")
                             ->searchable(),
 
                 TextColumn::make("orderItems.product.title")
+                            ->label("Product Title")
                             ->searchable(),
+
+                TextColumn::make("orderItems.product.quantity")
+                            ->label("Product Quantity")->badge(),
+
             ])
             ->filters([
                 //
@@ -70,10 +78,11 @@ class OrderResource extends Resource
         return $infolist
             ->schema([
                 Section::make([
-                    TextEntry::make('user.name'),
-                    TextEntry::make('user.email'),
-                    TextEntry::make('orderItems.product.title'),
-                    TextEntry::make('orderItems.product.description'),
+                    TextEntry::make('user.name')->label("User Name : "),
+                    TextEntry::make('user.email')->label("User Email : "),
+                    TextEntry::make('orderItems.product.title')->label("Product Title : "),
+                    TextEntry::make('orderItems.product.description')->label("Product Description : "),
+                    TextEntry::make('orderItems.product.quantity')->label("Product Quantity : ")->badge(),
                 ])
             ]);
     }
