@@ -72,7 +72,7 @@ Route::middleware('auth')->group(function () {
     /**
      * Add To Cart
      */
-    Route::post('/carts/add/{id}', [CartController::class, 'addToCart'])->name('cart.add');
+    Route::post('/cart/add/{id}', [CartController::class, 'addToCart'])->name('cart.add');
 
     /**
      * Show Cart
@@ -82,8 +82,12 @@ Route::middleware('auth')->group(function () {
     /**
      * Remove From Cart
      */
-    Route::delete('/carts/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
+    Route::delete('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
     
+    /**
+     * Checkout
+     */
+    Route::post('/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
     /**
      * Store Blog Comment
      */

@@ -65,9 +65,12 @@
                     </div>
 
                     <div class="mt-6 flex justify-end">
-                        <a href="#" class="bg-green-500 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition hover:bg-green-600">
-                            Proceed to Checkout
-                        </a>
+                        <form action="{{ route('cart.checkout') }}" method="POST">
+                            @csrf
+                            <button type="submit" class="bg-green-500 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-green-600">
+                                Proceed to Checkout
+                            </button>
+                        </form>
                     </div>
                 </div>
             @else

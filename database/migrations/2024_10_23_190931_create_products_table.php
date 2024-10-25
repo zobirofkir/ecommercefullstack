@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string("title");
             $table->longText("description");
             $table->string("slug")->unique();
-            $table->string("prix");
+            $table->decimal("prix", 10, 2);
             $table->longText("images")->nullable();
             $table->integer("quantity")->default(1);
             $table->timestamps();

@@ -35,7 +35,9 @@ class ProductResource extends Resource
                 Textarea::make("description")
                             ->required(),
                 TextInput::make("prix")
-                            ->required(),
+                            ->required()
+                            ->numeric()
+                            ->step(0.01), 
                             
                 FileUpload::make('images')
                             ->multiple()
