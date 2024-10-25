@@ -10,4 +10,8 @@ interface CartConstructor
     public function showCart();
 
     public function removeFromCart($id);
+
+    public function checkout();
+    
+    public function orderHistory();
 }

@@ -88,6 +88,12 @@ Route::middleware('auth')->group(function () {
      * Checkout
      */
     Route::post('/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
+
+    /**
+     * Order History
+     */
+    Route::get('/order-history', [CartController::class, 'orderHistory'])->name('order.history');
+
     /**
      * Store Blog Comment
      */
