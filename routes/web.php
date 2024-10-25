@@ -64,6 +64,12 @@ Route::get('/products/comments', [ProductCommentController::class, 'index'])->na
  */
 Route::get('/search', [SearchController::class, 'search'])->name('products.search');
 
+
+/**
+ * List Categories
+ */
+Route::get('/categories', function () { return view('src.screens.categories.categories'); })->name('categories.index');
+
 /**
  * Authenticated Routes
  */

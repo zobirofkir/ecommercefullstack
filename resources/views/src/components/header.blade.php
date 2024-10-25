@@ -32,6 +32,10 @@
                 <a href="{{url('/shops')}}">
                     <li class="text-black font-bold text-md px-5 py-1 rounded-full">Shop</li>
                 </a>
+
+                <a href="{{url('/categories')}}">
+                    <li class="text-black font-bold text-md px-5 py-1 rounded-full">Categories</li>
+                </a>
                 
                 <a href="{{url('/contacts')}}">
                     <li class="text-black font-bold text-md px-5 py-1 rounded-full">Contact</li>                
@@ -92,6 +96,10 @@
 
             <a href="{{url('/shops')}}">
                 <li class="text-black text-lg font-medium hover:bg-green-400 hover:text-white px-3 py-2 rounded-lg transition-colors duration-200 cursor-pointer">Shop</li>
+            </a>
+
+            <a href="{{url('/categories')}}">
+                <li class="text-black text-lg font-medium hover:bg-green-400 hover:text-white px-3 py-2 rounded-lg transition-colors duration-200 cursor-pointer">Categories</li>
             </a>
 
             <a href="{{url('/contacts')}}">
