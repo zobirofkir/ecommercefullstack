@@ -14,7 +14,7 @@
 <body class="bg-gray-100">
     @include('src.components.header')
 
-    <div class="flex flex-col justify-center items-center min-h-screen">
+    <div class="flex flex-col justify-center items-center min-h-screen mt-[50px]">
 
         <div class="container mx-auto my-10 p-8 bg-white shadow-lg rounded-lg">
             <h1 class="text-3xl font-extrabold mb-6 text-gray-800">Order History</h1>
@@ -23,16 +23,23 @@
                 @foreach($orders as $order)
                     <div class="mb-6 border-b pb-6">
                         <h2 class="text-lg font-semibold">Order #{{ $order->id }} - {{ $order->created_at->format('d M Y') }}</h2>
-                        <p>Total: MAD {{ number_format($order->total, 2) }}</p>
+                        <div class="flex justify-center items-center">
+                            <p class="text-black font-bold">Total: MAD {{ number_format($order->total, 2) }}</p>
+                        </div>
 
-                        <ul class="mt-4">
+                        <div class="mt-4">
                             @foreach($order->orderItems as $item)
-                                <li class="flex justify-between">
-                                    <div>{{ $item->product->title }}</div>
+                            <div>
+                                <img src="{{ asset('storage/' . $item->product->images[0]) }}" class="w-24 h-24 object-cover object-center" alt="">
+                            </div>
+                                <div class="flex justify-between items-center ">
+                                    <div class="flex justify-center items-center mx-[25px]">
+                                        <h1 class="text-black text-lg font-bold">{{ $item->product->title }}</h1>
+                                    </div>
                                     <div>{{ $item->quantity }} x MAD {{ number_format($item->price, 2) }}</div>
-                                </li>
+                                </div>
                             @endforeach
-                        </ul>
+                        </div>
                     </div>
                 @endforeach
             @else
