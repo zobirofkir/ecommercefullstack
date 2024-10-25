@@ -22,7 +22,10 @@ class BlogCommentService implements BlogCommentConstructor
         $commentData = $request->validated();
         $commentData['user_id'] = Auth::id();
         
-        $comment = BlogComment::create($commentData);
+        $comment = BlogComment::create([
+            'email' => Auth::user()->email,
+            ...$commentData
+        ]);
     
         return [
             "comment" => $comment
@@ -31,7 +34,6 @@ class BlogCommentService implements BlogCommentConstructor
     
     public function delete(BlogComment $comment)
     {
-        // Check if the authenticated user is the owner of the comment
         if (Auth::id() === $comment->user_id) {
             $comment->delete();
             return true;

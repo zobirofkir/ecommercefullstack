@@ -24,7 +24,6 @@ class BlogCommentRequest extends FormRequest
         return [
             'blog_id' => 'required|exists:blogs,id',
             'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
             'message' => 'required|string|max:255',
         ];
     }
