@@ -18,6 +18,7 @@ use Filament\Infolists\Components\Section;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Infolist;
 use Filament\Tables\Columns\TextColumn;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class OrderResource extends Resource
 {
@@ -91,7 +92,6 @@ class OrderResource extends Resource
                 ])
             ]);
     }
-    
     
     public static function getPages(): array
     {
