@@ -1,6 +1,7 @@
 <?php
 namespace App\Services\Services;
 
+use App\Mail\CheckoutMail;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Cart;
@@ -9,7 +10,7 @@ use App\Models\OrderItem;
 use App\Services\Constructor\CartConstructor;
 use App\Services\Facades\CartFacade;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Mail;
 
 class CartService implements CartConstructor
 {
@@ -71,7 +72,6 @@ class CartService implements CartConstructor
             return response()->json(['message' => 'Your cart is empty.'], 400);
         }
 
-        // Calculate the total
         $total = $cartItems->sum(function ($cartItem) {
             $price = (float) $cartItem->product->prix;
             $quantity = (int) $cartItem->quantity;
@@ -93,6 +93,8 @@ class CartService implements CartConstructor
             ]);
         }
 
+        Mail::to('zobirofkir19@gmail.com')->send(new CheckoutMail($cartItems, $total));
+
         Cart::where('user_id', $userId)->delete();
 
         return true;
@@ -101,6 +103,7 @@ class CartService implements CartConstructor
     public function orderHistory()
     {
         $orders = Order::where('user_id', Auth::id())->with('orderItems.product')->get();
+        
         return [
             'orders' => $orders
         ];
