@@ -7,12 +7,12 @@
             $items = App\Services\Facades\BlogFacade::index();
             $blogs = $items['blogs'];
         @endphp
-        <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-6 md:px-0 px-5">
+        <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-4 gap-6 md:px-0 px-5">
             @foreach ($blogs as $blog)
                 <div class="bg-white shadow-lg rounded-lg p-4 transition-transform duration-300 ease-in-out transform hover:scale-105 hover:-rotate-3">
                     <a href="{{route('blogs.show', $blog->slug)}}" class="">
                         <div class="flex justify-center items-center">
-                            <img src="{{ asset('storage/' . $blog->image[0]) }}" alt="Blog Image" class="w-full md:h-[400px] h-[200px] object-cover object-center rounded-lg hover:rotate-3 transition-transform duration-300">
+                            <img src="{{ asset('storage/' . $blog->image[0]) }}" alt="Blog Image" class="w-full h-48 object-cover object-center rounded-lg hover:rotate-3 transition-transform duration-300">
                         </div>
                         <div class="flex flex-col">
                             <h1 class="text-xl font-bold text-center mt-4 text-black hover:rotate-3 transition-transform duration-300">{{ $blog->title }}</h1>
