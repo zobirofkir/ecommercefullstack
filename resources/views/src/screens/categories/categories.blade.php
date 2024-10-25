@@ -21,7 +21,7 @@
 </head>
 <body class="bg-gray-50 text-gray-800">
     @include('src.components.navigations.header')
-    @include('src.components.search')
+    @include('src.components.search.search')
     @include('src.components.categories.categories')
 
     @php

@@ -24,15 +24,17 @@
 <body class="bg-gray-100">
     @include('src.components.navigations.header')
 
+    @include('src.components.search.search')
+
     @if (Auth::user()->orders->count() > 0)
-        <div class="mt-[100px] flex justify-end container mx-auto md:px-0 px-5">
+        <div class="mt-[20px] flex justify-end container mx-auto md:px-0 px-5">
             <a href="{{route('order.history')}}" class="bg-green-400 px-6 py-3 rounded-lg text-white">
                 <i class="fa-solid fa-list-check mx-5"></i> ({{ Auth::user()->orders->count() }})
             </a>
         </div>
     @endif
 
-    <div class="min-h-screen flex items-center justify-center">
+    <div class="min-h-screen flex items-center justify-center -mt-[200px]">
         <div class="container mx-auto my-10 p-8 bg-white shadow-lg rounded-lg">
             <h1 class="text-3xl font-extrabold mb-6 text-gray-800">Your Cart</h1>
 

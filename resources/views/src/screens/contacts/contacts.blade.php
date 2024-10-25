@@ -23,7 +23,7 @@
 <body>
     @include('src.components.navigations.header')
     
-    @include('src.components.search')
+    @include('src.components.search.search')
 
     @include('src.components.categories.categories')
 

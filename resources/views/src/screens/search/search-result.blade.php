@@ -19,8 +19,10 @@
 <body class="bg-gray-100">
     @include('src.components.navigations.header')
 
+    @include('src.components.search.search')
+
     @if(isset($results) && $results->isNotEmpty())
-        <div class="container mx-auto p-6 mt-6 mb-10 h-screen mt-20">
+        <div class="container mx-auto p-6 mt-6 mb-10 h-screen mt-[100px]">
             <h1 class="text-3xl font-bold mb-6 text-center text-gray-900">Search Results</h1>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
