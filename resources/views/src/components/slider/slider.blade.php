@@ -16,7 +16,7 @@
                     </p>
                 </div>
 
-                <div class="w-full md:w-1/2 p-4 md:p-8 flex justify-center items-center">
+                <div class="w-full md:w-1/2 p-4 md:p-8 flex justify-center md:mb-0 mb-[100px] items-center">
                     <img 
                         src="{{ asset('storage/' . $product->images[0]) }}"
                         alt="Product image"
