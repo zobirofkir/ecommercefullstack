@@ -19,6 +19,7 @@
                     </p>
                     <div class="flex justify-between items-center mt-4">
                         <a href="{{ route('shops.show', $product->slug) }}" class="text-green-500 md:text-start text-center hover:text-green-600 font-semibold transition duration-200">View Details</a>
+                        <a href="{{ route('shops.show', $product->slug) }}" class="text-green-500 md:text-start text-center hover:text-green-600 font-semibold transition duration-200">{{$product->prix }} MAD</a>
                     </div>
                 </div>
             </div>
