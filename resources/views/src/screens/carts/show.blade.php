@@ -69,7 +69,7 @@
 
                     <div class="flex justify-between text-xl font-semibold border-t border-gray-200 pt-4 mt-4">
                         <p>Total</p>
-                        <p>${{ number_format($total, 2) }}</p>
+                        <p>MAD {{ number_format($total, 2) }}</p>
                     </div>
 
                     <div class="mt-6 flex justify-end">
