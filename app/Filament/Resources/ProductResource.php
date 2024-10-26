@@ -60,7 +60,8 @@ class ProductResource extends Resource
                 TextColumn::make("title")
                             ->searchable(),
                 TextColumn::make("description")->limit(50),
-                TextColumn::make("prix"),
+                TextColumn::make("prix")
+                            ->prefix("MAD "),
 
                 ImageColumn::make('images')
                             ->label('Image')

@@ -3,25 +3,28 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
 use Illuminate\Support\Str;
 
-
-class Category extends Model
+class Offer extends Model
 {
     protected $fillable = [
-        "title", 
-        "slug",
+        'title',
+        'description',
+        'images',
+        'slug',
+        'prix',
+        'quantity',
+        'category_id',
     ];
 
-    public function products()
-    {
-        return $this->hasMany(Product::class);
-    }
+    protected $casts = [
+        'images' => 'array',
+    ];
 
-    public function offers()
+
+    public function category()
     {
-        return $this->hasMany(Offer::class);
+        return $this->belongsTo(Category::class);
     }
 
     protected static function boot()
@@ -38,5 +41,4 @@ class Category extends Model
             }
         });
     }
-
 }

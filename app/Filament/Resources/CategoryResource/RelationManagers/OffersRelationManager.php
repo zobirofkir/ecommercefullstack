@@ -4,7 +4,6 @@ namespace App\Filament\Resources\CategoryResource\RelationManagers;
 
 use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
@@ -16,9 +15,9 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class ProductsRelationManager extends RelationManager
+class OffersRelationManager extends RelationManager
 {
-    protected static string $relationship = 'products';
+    protected static string $relationship = 'offers';
 
     public function form(Form $form): Form
     {
@@ -45,22 +44,23 @@ class ProductsRelationManager extends RelationManager
     public function table(Table $table): Table
     {
         return $table
-            ->recordTitleAttribute('title')
-            ->columns([
-                TextColumn::make("title")
-                            ->searchable(),
-                TextColumn::make("description")->limit(50),
-                TextColumn::make("prix")
-                            ->prefix("MAD "),
+        ->recordTitleAttribute('title')
+        ->columns([
+            TextColumn::make("title")
+                        ->searchable(),
+            TextColumn::make("description")->limit(50),
+            TextColumn::make("prix")
+                        ->prefix("MAD "),
 
-                ImageColumn::make('images')
-                            ->label('Image')
-                            ->disk('public')
-                            ->width(50)
-                            ->height(50),
+            ImageColumn::make('images')
+                        ->label('Image')
+                        ->disk('public')
+                        ->width(50)
+                        ->height(50),
 
-            ])->defaultSort("created_at", "desc")
-            ->filters([
+        ])->defaultSort("created_at", "desc")
+
+        ->filters([
                 //
             ])
             ->headerActions([
