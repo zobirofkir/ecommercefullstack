@@ -6,6 +6,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OfferController;
 use App\Http\Controllers\ProductCommentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductController;
@@ -74,6 +75,16 @@ Route::get('/categories', function () { return view('src.screens.categories.cate
  * Authenticated Routes
  */
 Route::middleware('auth')->group(function () {
+
+    /**
+     * Get Offers Route
+     */
+    Route::get('/offers', [OfferController::class, 'index'])->name('offers.index');
+
+    /**
+     * Show Offer Route
+     */
+    Route::get('/offers/{slug}', [OfferController::class, 'show'])->name('offers.show');
 
     /**
      * Add To Cart

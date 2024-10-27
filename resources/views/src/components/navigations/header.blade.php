@@ -37,6 +37,12 @@
                     <li class="text-black font-bold text-md px-5 py-1 rounded-full">Categories</li>
                 </a>
                 
+                @if (Auth::check() && App\Models\Offer::count() > 0)
+                    <a href="{{url('/offers')}}">
+                        <li class="text-black font-bold text-md px-5 py-1 rounded-full">Offers</li>                
+                    </a>
+                @endif
+                
                 <a href="{{url('/contacts')}}">
                     <li class="text-black font-bold text-md px-5 py-1 rounded-full">Contact</li>                
                 </a>

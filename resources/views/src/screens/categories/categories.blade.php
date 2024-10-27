@@ -19,7 +19,7 @@
         @endif
     </title>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-100">
     @include('src.components.navigations.header')
     @include('src.components.search.search')
     @include('src.components.categories.categories')
