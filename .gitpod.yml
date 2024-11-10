@@ -1,0 +1,14 @@
+tasks:
+  - init: |
+      cp .env.example .env
+      composer install
+      ./vendor/bin/sail up -d
+      ./vendor/bin/sail artisan key:generate
+      npm install
+  - command: |
+      npm run build
+      ./vendor/bin/sail up
+
+ports:
+  - port: 80
+    onOpen: open-preview
